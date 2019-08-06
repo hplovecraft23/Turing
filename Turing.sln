@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuringApi", "TuringApi\TuringApi.csproj", "{DA3F05B4-6C75-44FA-91ED-4AA17F6E694B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TuringApi", "TuringApi\TuringApi.csproj", "{DA3F05B4-6C75-44FA-91ED-4AA17F6E694B}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F2C30F6B-34F0-4BC8-BEF4-8623513C34C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mysqlscript", "mysqlscript", "{FD87CADF-9532-404A-AD8F-3BD45E78573F}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Desktop\SAP\init.sql = ..\..\..\Desktop\SAP\init.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +22,10 @@ Global
 		{DA3F05B4-6C75-44FA-91ED-4AA17F6E694B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA3F05B4-6C75-44FA-91ED-4AA17F6E694B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA3F05B4-6C75-44FA-91ED-4AA17F6E694B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2C30F6B-34F0-4BC8-BEF4-8623513C34C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2C30F6B-34F0-4BC8-BEF4-8623513C34C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2C30F6B-34F0-4BC8-BEF4-8623513C34C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2C30F6B-34F0-4BC8-BEF4-8623513C34C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

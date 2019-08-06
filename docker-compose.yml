@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_DATABASE: Turing
+      MYSQL_USER: TuringUsr
+      MYSQL_PASSWORD: ThisIsAPassword
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./mysqlscript:/docker-entrypoint-initdb.d
+  turingapi:
+    depends_on:
+      - mysql
+    image: ${DOCKER_REGISTRY-}turingapi
+    build:
+      context: .
+      dockerfile: TuringApi/Dockerfile
+volumes:
+  dbdata:
