@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace TuringApi
 {
@@ -26,6 +28,8 @@ namespace TuringApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddDbContext<Models.TuringContext>(con => con.UseInMemoryDatabase("Turing"));
+            services.AddDbContext<Models.TuringContext>(con => con.UseMySQL(@"Server=mysql; Database=Turing; Uid=TuringUsr; Pwd=ThisIsAPassword"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSwaggerGen(x =>
             {
@@ -34,7 +38,7 @@ namespace TuringApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Models.TuringContext context)
         {
             if (env.IsDevelopment())
             {
@@ -44,7 +48,8 @@ namespace TuringApi
             {
                 app.UseHsts();
             }
-
+            context.Database.EnsureCreated();
+            context.Database.Migrate();
             app.UseHttpsRedirection();
             app.UseMvc();
             app.UseSwagger();
