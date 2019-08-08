@@ -29,7 +29,7 @@ namespace TuringApi
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddDbContext<Models.TuringContext>(con => con.UseInMemoryDatabase("Turing"));
-            services.AddDbContext<Models.TuringContext>(con => con.UseMySQL(@"Server=mysql; Database=Turing; Uid=TuringUsr; Pwd=ThisIsAPassword"));
+            services.AddDbContext<Models.TuringContext>(con => con.UseMySql(@"Server=mysql; Database=Turing; Uid=TuringUsr; Pwd=ThisIsAPassword"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSwaggerGen(x =>
             {
